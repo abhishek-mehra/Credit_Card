@@ -66,3 +66,6 @@ This is again verified by plotting the total revolving balance and average utili
 - As seen in the scatter plot of Transaction amount and transaction count Customers with low transactions, there are more churning.  We can therefore increase the retention of customers by involving the customers in transactions by giving them attractive offers.
 
 - As seen in frequency plot of the Customers with salary less 40k are the highest number of members in the services , more focus can be given on their retention. Giving the customers with less salary more offers to stay.
+
+
+Further I will utilise machine learning models to predict the label class. And what features are most dominant in predicting the target class.
