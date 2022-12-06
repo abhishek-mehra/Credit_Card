@@ -10,13 +10,13 @@ Dataset Source:https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customer
 
 ## Business Problem
 
-Clients are departing from a bank’s credit card services (I could not find particular details of the bank or the credit card services). The bank manager is interested in learning why consumers are leaving their services and what can be done about it. I would perform descriptive and predictive analysis to find what factors contribute to customers’ churn.
+Clients are departing from a bank’s credit card services (I could not find particular details of the bank or the credit card services). The bank manager is interested in learning why consumers are leaving their services and what can be done about it. I would perform descriptive and predictive analysis to find out what factors contribute to customers’ churn.
 
 ## Information that I will try to extract from the dataset.
 
-Q. What is the profile of the existing bank customers, for example what is the average age, salaries, type of credit card held by the customers.
+Q. What is the profile of the existing bank customers, for example, what is the average age, salaries, and type of credit card held by the customers.
 
-Q. What is the profile of customers leaving the credit card services.
+Q. What is the profile of customers leaving credit card services.
 
 Q. What factors differentiate between customers who stay and those who leave the services.
 
