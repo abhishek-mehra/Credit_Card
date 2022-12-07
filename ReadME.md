@@ -171,7 +171,7 @@ By reducing the number of trees improves the scores here.
 
 ###### Scale_pos_weight
 
-Since the data is imbalanced. Providing the scale_pos_weight balances the weight of the postive and the negative classes. There was a significant improvemnts in the scores. This improved the separatabilty between the target class.
+Since the data is imbalanced. Providing the scale_pos_weight balances the weight of the positive and the negative classes. There were significant improvements in the scores. This improved the separability between the target class.
 
 **precison_mean = 0.88, recall_mean= 0.944, f1_score_mean=0.911,roc_mean= 0.96**
 
