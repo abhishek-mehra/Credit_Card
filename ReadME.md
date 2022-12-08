@@ -182,3 +182,54 @@ Since the data is imbalanced. Providing the scale_pos_weight balances the weight
 I took 10% of the data as test data. Trained the data on the training set and predicted on the test set.
 
 
+
+## Result summary
+
+
+
+
+
+## Learning
+
+- Random Forest classifiers work well XGBoost performs better,
+- choosing cross validation since evaluaton on fixed metrics leaves the out the data for model to train on.
+- Cross validation takes all the data for the model to train on
+- Target label is statified in order to main the ratio of postives and negatives.
+- 
+
+
+XGboost is the best performing model amongst random foresr and ada
+
+Xgboost - parameters 
+
+- learning variant
+
+to control overfitting of xgboost we can control complexity of model.
+
+-increasing the depth of estimators in xgboost increase complexity and can increase overfittig.
+there was improvement in the score when reduce the depth of tree
+
+-min_child_weight
+Imagine that you are playing with a bunch of blocks. Each block represents an observation in your data set, and the weight of the block represents the importance of that observation.
+When you are building a model using XGBoost, you can tell it to only consider splitting a group of blocks into smaller groups if the total weight of the blocks in the smaller group is greater than a certain amount. This is what the min_child_weight parameter does. It helps prevent your model from overfitting by making sure that it only splits groups of blocks into smaller groups if those smaller groups are "important" enough.
+
+there was no major difference 
+
+
+to control overfitting we can increase random ness 
+
+1. subsample -when froming trees there are samples from the data picked adjusting the sample fraction increses randomneess in the model
+
+
+HANDLING imbalanced dataet
+since the target class in imbalnced, xgboost provides a hyperparameter scale_pos_weight- we will provide the target class ratio of postives to negatives to the model.
+
+This will in turn tell the model to pay extra attention to the class with less frequnecy, so that model is able to predict the class with less frequncy better
+
+
+
+
+
+
+
+
