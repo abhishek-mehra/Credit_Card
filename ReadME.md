@@ -32,7 +32,7 @@ After importing the dataset, I performed exploratory data analysis using Pandas 
 
 Performing statistical analysis I observed the profiles of the customers. This included their ages, gender, education level, marital status, income category, and credit card category. 
 
-![Categorical](./Images/Capture.jpg)
+![Categorical!](./Images/Capture.jpg)
 
 Observations:
 
@@ -52,7 +52,7 @@ Observations: - Most of the customers leaving the services are under $40k salary
 
 Plotting two features with dependent variables showed some interesting findings. Customers who spent more money left the services less frequently.
 
-![Scatter Plot](./Images/scatter_plot_transaction_count_amount.JPG)
+![Scatter Plot!](./Images/scatter_plot_transaction_count_amount.JPG)
 
 
 This is again verified by plotting the total revolving balance and average utilization ratio scatter plot against customer attrition status. Customers who have a lower average utilization and total revolving balance are more likely to discontinue use of the services.
