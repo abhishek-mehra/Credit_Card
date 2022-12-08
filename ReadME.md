@@ -32,7 +32,7 @@ After importing the dataset, I performed exploratory data analysis using Pandas 
 
 Performing statistical analysis I observed the profiles of the customers. This included their ages, gender, education level, marital status, income category, and credit card category. 
 
-![Capture.JPG](http://localhost:8888/lab/tree/Desktop/Workspace/Projects/Credit_Card/Images/Capture.jpg)
+![Categorical](./Images/Capture.jpg)
 
 Observations:
 
@@ -52,7 +52,7 @@ Observations: - Most of the customers leaving the services are under $40k salary
 
 Plotting two features with dependent variables showed some interesting findings. Customers who spent more money left the services less frequently.
 
-![Capture.JPG](http://localhost:8888/lab/tree/Desktop/Workspace/Projects/Credit_Card/Images/scatter_plot_transaction_count_amount.jpg)
+![Scatter Plot](./Images/scatter_plot_transaction_count_amount.JPG)
 
 
 This is again verified by plotting the total revolving balance and average utilization ratio scatter plot against customer attrition status. Customers who have a lower average utilization and total revolving balance are more likely to discontinue use of the services.
@@ -61,6 +61,7 @@ This is again verified by plotting the total revolving balance and average utili
 
 
 ## Conclusions
+
 
 
 - As seen in the scatter plot of Transaction amount and transaction count Customers with low transactions, there are more churning.  We can therefore increase the retention of customers by involving the customers in transactions by giving them attractive offers.
