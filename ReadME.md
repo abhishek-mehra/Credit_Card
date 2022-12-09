@@ -50,12 +50,14 @@ Observations: - Most of the customers leaving the services are under $40k salary
 
 ## Multivariate analysis observation
 
-Plotting two features with dependent variables showed some interesting findings. Customers who spent more money left the services less frequently.
+Plotting two features with dependent variables showed some interesting findings. In the higher transacations region there are no customers leaving the services
 
 ![Scatter Plot!](./Images/scatter_plot_transaction_count_amount.JPG)
 
 
 This is again verified by plotting the total revolving balance and average utilization ratio scatter plot against customer attrition status. Customers who have a lower average utilization and total revolving balance are more likely to discontinue use of the services.
+
+![scatterplot!](./Images/avg_utilisation%20and%20revolving.JPG)
 
 
 
@@ -75,7 +77,7 @@ Further I will utilise machine learning models to predict the label class. And w
 
 ### Machine Learning on Credit card Churning dataset
 
-#### I Created Functions to simplyfy my repeated tasks. I created functions for :
+#### I Created Functions to simplify my repeated tasks. I created functions for :
 
 
  1. Category data type conversion,  
@@ -98,17 +100,20 @@ Further I will utilise machine learning models to predict the label class. And w
 I trained multiple RandomForestClassifier models on training data i.e 80% of the whole dataset. 
 to maintain the original ratio of the samples in the target class stratified the dataset. Since the target class is imbalanced stratify will provide the same percentage in the split dataset. 
 
+![base mode train test split!](./Images/base%20model%20train%20test%20split.JPG)
 
 In the RandomForest Clasifier the number of trees was varied, to determine the better performing model. The best metric was obtained was precision_score = 0.943, recall_score = 0.868, roc_score = 0.929, f1_score = 0.904 with number of trees set to 500.
 
-In this experiment the data was not trained on the whole dataset. The validation set kept aside which may hold insghts was not used to train the model. Hence to overcome this I shifted to Stratified Cross Validation to evaluate my model.
+In this experiment the data was not trained on the whole dataset. The validation set kept aside which may hold insights was not used to train the model. Hence to overcome this I shifted to Stratified Cross Validation to evaluate my model.
 
 
 
-#### Best base model base on train - Stratified Cross Validation
+#### Best base model base on - Stratified Cross Validation
 
 I trained Random Forest Classifier on multiple trees to get best base model with:
 precison_mean = 0.931, recall_mean= 0.799, f1_score_mean=0.86,roc_mean= 0.894 on 500 number of estimators.
+
+![cv](./Images/Base%20model%20cross%20validation.JPG)
 
 Further I will perform modifications to improve my model.
 
@@ -132,20 +137,20 @@ On adding a new feature of average transaction the model performed better in f1 
 
 I combined feature engineering and Standard Scalar transformation into a function. This combined transformation will be used further in the experiments since they are adding value to the model
 
-**ADA
-precison_mean = 0.915, recall_mean= 0.807, f1_score_mean=0.858,roc_mean= 0.896**
+![changes](./Images/changes.JPG)
 
-**RandomForest
-precison_mean = 0.936, recall_mean= 0.824, f1_score_mean=0.877,roc_mean= 0.907**
 
-**XGBoost
-precison_mean = 0.932, recall_mean= 0.892, f1_score_mean=0.911,roc_mean= 0.94**
+
+
+
 
 
 
 #### Selecting the best model out of ADABoost, Random forest and XGBoost classifier
 
 XGBoost performed better than the rest of the models. 
+
+![three classifier!](./Images/Three%20classifiers.JPG)
 
 
 I will further vary the parameters of the XGBoostclasifer to improve on my model
@@ -157,6 +162,8 @@ I will further vary the parameters of the XGBoostclasifer to improve on my model
 
 This determines how fast or how slow our model learns from the past errors. Slower learning rate is usually preffered since it includes more data points to learn from.
 
+![lr](./Images/Three%20classifiers.JPG)
+
 **precison_mean = 0.933, recall_mean= 0.892, f1_score_mean=0.912,roc_mean= 0.94**
 
 ##### Controlling overfitting
@@ -165,6 +172,8 @@ This determines how fast or how slow our model learns from the past errors. Slow
 
 Greater the depth of the tree more is its complexity and hence more are the chances of its overfiting
 By reducing the number of trees improves the scores here.
+
+![dt](./Images/max%20depth.JPG)
 
 **precison_mean = 0.937, recall_mean= 0.891, f1_score_mean=0.913,roc_mean= 0.94**
 
@@ -186,29 +195,29 @@ I took 10% of the data as test data. Trained the data on the training set and pr
 
 ## Result summary
 
+Important features
 
+![FI](./Images/feature%20importance.JPG)
 
 
 
 ## Learning
 
-- Random Forest classifiers work well XGBoost performs better,
-- choosing cross validation since evaluaton on fixed metrics leaves the out the data for model to train on.
-- Cross validation takes all the data for the model to train on
-- Target label is statified in order to main the ratio of postives and negatives.
-- 
+- Train test split fixes a part of data for validation. This leaves data for training, therefore using cross validation
+
+- Since the target label is imbalanced, stratifying the target label in order to maintain the ratio of postives and negatives.
 
 
-XGboost is the best performing model amongst random foresr and ada
+XGboost is the best performing model amongst random forest and ada
 
-Xgboost - parameters 
+Xgboost can perform better with varying parameters 
 
-- learning variant
+- learning variant- slow learning rate makes the model to take small steps in models weights, hence learning more details.
 
 to control overfitting of xgboost we can control complexity of model.
 
 -increasing the depth of estimators in xgboost increase complexity and can increase overfittig.
-there was improvement in the score when reduce the depth of tree
+there was improvement in the score when reduce the depth of tree.
 
 -min_child_weight
 Imagine that you are playing with a bunch of blocks. Each block represents an observation in your data set, and the weight of the block represents the importance of that observation.

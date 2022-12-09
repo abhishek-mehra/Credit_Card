@@ -32,7 +32,7 @@ After importing the dataset, I performed exploratory data analysis using Pandas 
 
 Performing statistical analysis I observed the profiles of the customers. This included their ages, gender, education level, marital status, income category, and credit card category. 
 
-![Capture.JPG](http://localhost:8888/lab/tree/Desktop/Workspace/Projects/Credit_Card/Images/Capture.jpg)
+![Categorical!](./Images/Capture.jpg)
 
 Observations:
 
@@ -50,17 +50,20 @@ Observations: - Most of the customers leaving the services are under $40k salary
 
 ## Multivariate analysis observation
 
-Plotting two features with dependent variables showed some interesting findings. Customers who spent more money left the services less frequently.
+Plotting two features with dependent variables showed some interesting findings. In the higher transacations region there are no customers leaving the services
 
-![Capture.JPG](http://localhost:8888/lab/tree/Desktop/Workspace/Projects/Credit_Card/Images/scatter_plot_transaction_count_amount.jpg)
+![Scatter Plot!](./Images/scatter_plot_transaction_count_amount.JPG)
 
 
 This is again verified by plotting the total revolving balance and average utilization ratio scatter plot against customer attrition status. Customers who have a lower average utilization and total revolving balance are more likely to discontinue use of the services.
+
+![scatterplot!](./Images/avg_utilisation%20and%20revolving.JPG)
 
 
 
 
 ## Conclusions
+
 
 
 - As seen in the scatter plot of Transaction amount and transaction count Customers with low transactions, there are more churning.  We can therefore increase the retention of customers by involving the customers in transactions by giving them attractive offers.
@@ -74,7 +77,7 @@ Further I will utilise machine learning models to predict the label class. And w
 
 ### Machine Learning on Credit card Churning dataset
 
-#### I Created Functions to simplyfy my repeated tasks. I created functions for :
+#### I Created Functions to simplify my repeated tasks. I created functions for :
 
 
  1. Category data type conversion,  
@@ -97,10 +100,11 @@ Further I will utilise machine learning models to predict the label class. And w
 I trained multiple RandomForestClassifier models on training data i.e 80% of the whole dataset. 
 to maintain the original ratio of the samples in the target class stratified the dataset. Since the target class is imbalanced stratify will provide the same percentage in the split dataset. 
 
+![base mode train test split](./Images)
 
 In the RandomForest Clasifier the number of trees was varied, to determine the better performing model. The best metric was obtained was precision_score = 0.943, recall_score = 0.868, roc_score = 0.929, f1_score = 0.904 with number of trees set to 500.
 
-In this experiment the data was not trained on the whole dataset. The validation set kept aside which may hold insghts was not used to train the model. Hence to overcome this I shifted to Stratified Cross Validation to evaluate my model.
+In this experiment the data was not trained on the whole dataset. The validation set kept aside which may hold insights was not used to train the model. Hence to overcome this I shifted to Stratified Cross Validation to evaluate my model.
 
 
 
@@ -171,7 +175,7 @@ By reducing the number of trees improves the scores here.
 
 ###### Scale_pos_weight
 
-Since the data is imbalanced. Providing the scale_pos_weight balances the weight of the postive and the negative classes. There was a significant improvemnts in the scores. This improved the separatabilty between the target class.
+Since the data is imbalanced. Providing the scale_pos_weight balances the weight of the positive and the negative classes. There were significant improvements in the scores. This improved the separability between the target class.
 
 **precison_mean = 0.88, recall_mean= 0.944, f1_score_mean=0.911,roc_mean= 0.96**
 
@@ -180,5 +184,56 @@ Since the data is imbalanced. Providing the scale_pos_weight balances the weight
 
 
 I took 10% of the data as test data. Trained the data on the training set and predicted on the test set.
+
+
+
+## Result summary
+
+
+
+
+
+## Learning
+
+- Random Forest classifiers work well XGBoost performs better,
+- choosing cross validation since evaluaton on fixed metrics leaves the out the data for model to train on.
+- Cross validation takes all the data for the model to train on
+- Target label is statified in order to main the ratio of postives and negatives.
+- 
+
+
+XGboost is the best performing model amongst random foresr and ada
+
+Xgboost - parameters 
+
+- learning variant
+
+to control overfitting of xgboost we can control complexity of model.
+
+-increasing the depth of estimators in xgboost increase complexity and can increase overfittig.
+there was improvement in the score when reduce the depth of tree
+
+-min_child_weight
+Imagine that you are playing with a bunch of blocks. Each block represents an observation in your data set, and the weight of the block represents the importance of that observation.
+When you are building a model using XGBoost, you can tell it to only consider splitting a group of blocks into smaller groups if the total weight of the blocks in the smaller group is greater than a certain amount. This is what the min_child_weight parameter does. It helps prevent your model from overfitting by making sure that it only splits groups of blocks into smaller groups if those smaller groups are "important" enough.
+
+there was no major difference 
+
+
+to control overfitting we can increase random ness 
+
+1. subsample -when froming trees there are samples from the data picked adjusting the sample fraction increses randomneess in the model
+
+
+HANDLING imbalanced dataet
+since the target class in imbalnced, xgboost provides a hyperparameter scale_pos_weight- we will provide the target class ratio of postives to negatives to the model.
+
+This will in turn tell the model to pay extra attention to the class with less frequnecy, so that model is able to predict the class with less frequncy better
+
+
+
+
+
+
 
 
