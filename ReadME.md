@@ -215,10 +215,10 @@ XGboost is the best performing model amongst random forest and ada. Xgboost can 
 
 To control overfitting of xgboost we can control complexity of model.
 
--increasing the depth of estimators in xgboost increase complexity and can increase overfittig.
+- increasing the depth of estimators in xgboost increase complexity and can increase overfittig.
 there was improvement in the score when reduce the depth of tree.
 
--min_child_weight
+- min_child_weight
 
 When you are building a model using XGBoost, you can tell it to only consider splitting a group of blocks into smaller groups if the total weight of the blocks in the smaller group is greater than a certain amount. This is what the min_child_weight parameter does. It helps prevent your model from overfitting by making sure that it only splits groups of blocks into smaller groups if those smaller groups are "important" enough.
 
