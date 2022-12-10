@@ -153,7 +153,7 @@ XGBoost performed better than the rest of the models.
 ![three classifier!](./Images/Three%20classifiers.JPG)
 
 
-I will further vary the parameters of the XGBoostclasifer to improve on my model
+I will further vary the parameters of the XGBoostclassifer to improve on my model
 
 
 #### Best hyperparametere for XGBoost baseline model
@@ -164,7 +164,7 @@ This determines how fast or how slow our model learns from the past errors. Slow
 
 ![lr](./Images/Three%20classifiers.JPG)
 
-**precison_mean = 0.933, recall_mean= 0.892, f1_score_mean=0.912,roc_mean= 0.94**
+
 
 ##### Controlling overfitting
 
@@ -175,7 +175,7 @@ By reducing the number of trees improves the scores here.
 
 ![dt](./Images/max%20depth.JPG)
 
-**precison_mean = 0.937, recall_mean= 0.891, f1_score_mean=0.913,roc_mean= 0.94**
+
 
 
 
@@ -189,7 +189,7 @@ Since the data is imbalanced. Providing the scale_pos_weight balances the weight
 #### Holding out a test set to check overfitting and under fitting, Finding the spot of bias and variance tradeoff
 
 
-I took 10% of the data as test data. Trained the data on the training set and predicted on the test set.
+
 
 
 
@@ -203,36 +203,34 @@ Important features
 
 ## Learning
 
-- Train test split fixes a part of data for validation. This leaves data for training, therefore using cross validation
+- Train test split fixes a part of data for validation. This leaves data for training, therefore using cross validation will train on whole dataset and the scores mean can be used.
 
-- Since the target label is imbalanced, stratifying the target label in order to maintain the ratio of postives and negatives.
+- Since the target label is imbalanced, stratifying the target label in order to maintain the ratio of postives and negatives while calculating metrics.
 
 
-XGboost is the best performing model amongst random forest and ada
+XGboost is the best performing model amongst random forest and ada. Xgboost can perform better with varying parameters 
 
-Xgboost can perform better with varying parameters 
 
-- learning variant- slow learning rate makes the model to take small steps in models weights, hence learning more details.
+- learning rate - slow learning rate makes the model to take small steps in models weights, hence learning more details. My model performed better with lesser learning rate.
 
-to control overfitting of xgboost we can control complexity of model.
+To control overfitting of xgboost we can control complexity of model.
 
 -increasing the depth of estimators in xgboost increase complexity and can increase overfittig.
 there was improvement in the score when reduce the depth of tree.
 
 -min_child_weight
-Imagine that you are playing with a bunch of blocks. Each block represents an observation in your data set, and the weight of the block represents the importance of that observation.
+
 When you are building a model using XGBoost, you can tell it to only consider splitting a group of blocks into smaller groups if the total weight of the blocks in the smaller group is greater than a certain amount. This is what the min_child_weight parameter does. It helps prevent your model from overfitting by making sure that it only splits groups of blocks into smaller groups if those smaller groups are "important" enough.
 
-there was no major difference 
 
 
-to control overfitting we can increase random ness 
+We can  control overfitting by  increasing randomness in the data.
 
-1. subsample -when froming trees there are samples from the data picked adjusting the sample fraction increses randomneess in the model
+- subsample -when forming trees there are samples from the data picked adjusting the sample fraction increses randomneess in the model.
 
 
-HANDLING imbalanced dataet
-since the target class in imbalnced, xgboost provides a hyperparameter scale_pos_weight- we will provide the target class ratio of postives to negatives to the model.
+- Handling imbalanced dataet
+Since the target class in imbalanced, xgboost provides a hyperparameter scale_pos_weight- we will provide the target class ratio of postives to negatives to the model.
 
 This will in turn tell the model to pay extra attention to the class with less frequnecy, so that model is able to predict the class with less frequncy better
 
